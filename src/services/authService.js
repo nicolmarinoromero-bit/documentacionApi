@@ -4,6 +4,13 @@ const { getDb } = require('../data/store');
 const { jwtSecret, jwtExpiresIn } = require('../config');
 const AppError = require('../utils/AppError');
 
+/**
+ * Autentica al usuario para permitir el acceso a las rutas protegidas.
+ * Verifica sus credenciales y que la cuenta esté activa antes de generar un token.
+ * @param {string} usuario Nombre de usuario.
+ * @param {string} password Contraseña ingresada.
+ * @returns {{token: string, usuario: Object}} Token y datos básicos del usuario.
+ */
 function login(usuario, password) {
   if (!usuario || !password) throw new AppError('Usuario y contraseña son obligatorios');
 

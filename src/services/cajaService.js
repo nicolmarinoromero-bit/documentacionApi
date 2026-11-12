@@ -28,6 +28,13 @@ function resumen(vendedorId, fecha = fechaLocal()) {
   };
 }
 
+/**
+ * Registra el cierre diario comparando el efectivo reportado con el saldo esperado.
+ * Esto permite identificar faltantes o sobrantes y conservar el resultado del cierre.
+ * @param {number} vendedorId Identificador del vendedor.
+ * @param {{efectivoReportado: number, fecha?: string}} datos Efectivo contado y fecha opcional.
+ * @returns {Object} Cierre con la diferencia y el estado de caja.
+ */
 function cerrar(vendedorId, { efectivoReportado, fecha = fechaLocal() }) {
   if (!Number.isInteger(efectivoReportado) || efectivoReportado < 0) {
     throw new AppError('El efectivo reportado debe ser un entero positivo');

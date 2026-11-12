@@ -44,6 +44,13 @@ function verificarVentaPermitida(sorteo, tipoEsperado) {
   }
 }
 
+/**
+ * Registra el resultado para cerrar el sorteo y liquidar sus tiquetes activos.
+ * Así el sistema determina cuáles tiquetes tienen premio y cuánto corresponde pagar.
+ * @param {number|string} id Identificador del sorteo.
+ * @param {string|Object} resultado Resultado según el tipo de sorteo.
+ * @returns {Object} Sorteo actualizado con su resultado.
+ */
 function registrarResultado(id, resultado) {
   const sorteo = obtener(id);
   if (sorteo.estado === 'JUGADO') throw new AppError('El sorteo ya tiene resultado', 409);

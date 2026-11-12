@@ -17,6 +17,14 @@ function guardar(ticket) {
   return ticket;
 }
 
+/**
+ * Registra una venta de Chance y calcula el total del tiquete.
+ * Valida el sorteo y las apuestas para impedir ventas fuera del plazo
+ * o con datos que no cumplen las reglas del juego.
+ * @param {Object} vendedor Usuario que realiza la venta.
+ * @param {Object} datos Sorteo, apuestas y cliente opcional.
+ * @returns {Object} Tiquete creado.
+ */
 function venderChance(vendedor, { sorteoId, apuestas, cliente }) {
   const sorteo = sorteos.obtener(sorteoId);
   sorteos.verificarVentaPermitida(sorteo, 'CHANCE');

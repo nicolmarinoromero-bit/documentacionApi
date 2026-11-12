@@ -39,6 +39,14 @@ function validarApuesta(apuesta) {
   return { numero, cifras: numero.length, modalidad, valor };
 }
 
+/**
+ * Calcula el premio de una apuesta comparándola con el resultado del sorteo.
+ * Separa el cálculo por modalidad para determinar el pago correspondiente
+ * sin alterar el valor apostado.
+ * @param {Object} apuesta Apuesta previamente validada.
+ * @param {string} resultado Resultado ganador de cuatro cifras.
+ * @returns {number} Valor del premio; cero si la apuesta no ganó.
+ */
 function calcularPremio(apuesta, resultado) {
   const ganador = resultado.slice(-apuesta.cifras);
   const factor = TABLA_PAGOS[apuesta.cifras];
