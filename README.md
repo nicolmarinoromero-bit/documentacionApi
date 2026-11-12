@@ -118,7 +118,7 @@ Content-Type: application/json
 
 ## Documentación interactiva de la API
 
-Las rutas están implementadas en `src/routes/index.js`. Este proyecto aún no incluye una interfaz interactiva de Swagger UI. La tabla de endpoints y los ejemplos anteriores sirven como documentación básica. Si se configura OpenAPI/Swagger, agrega aquí las instrucciones para iniciar y consultar esa documentación.
+Inicia el servidor con `npm run dev` y abre [http://localhost:3000/docs](http://localhost:3000/docs) para explorar y probar los endpoints con Swagger UI. Para las rutas protegidas, inicia sesión, copia el token de la respuesta y usa **Authorize** con el token Bearer.
 
 ## Pruebas
 
